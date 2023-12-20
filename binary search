@@ -1,0 +1,41 @@
+//binary;
+#include<stdio.h>
+int main()
+{
+	int a[] = {2,5,8,12,16,23,38,56,72,91};
+	int key = 23;
+	int i,t = sizeof(a)/sizeof(a[0]);
+	int middlet = (0+t-1)/2;
+	//printf("%d",middlet);
+	if(a[middlet] == key)
+	{
+		printf("index %d is the value of key %d",middlet,key);
+		return 0;
+	}
+	else
+	{
+		if(key>a[middlet])
+		{
+			for(i=middlet+1;i<t-1;i++)
+			{
+				if(a[i]==key)
+				{
+					printf("index %d is the value of key %d",i,key);
+					return 0;
+				}
+			}
+		}
+		else
+		{
+			for(i=middlet-1;i>=0;i--)
+			{
+				if(a[i]==key)
+				{
+					printf("index %d is the value of key %d",i,key);
+					return 0;
+				}
+			}
+		}
+	}
+	
+}
