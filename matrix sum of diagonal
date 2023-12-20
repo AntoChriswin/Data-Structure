@@ -1,0 +1,15 @@
+#include<stdio.h>
+int main()
+{
+	int dia = 0;
+	int i,j;
+	int a[2][2] = {{1,2},
+	                {2,3}};
+	                
+	for(i=0;i<2;i++)
+	{
+		dia = dia+a[i][i];
+	}
+	printf("sum of diagonal = %d",dia);
+	return 0;
+}
