@@ -1,0 +1,22 @@
+#include<stdio.h>
+
+
+int main()
+{
+	int num,c,i;
+	int a=0,b=1;
+	c = a+b;
+	printf("\nEnter a Number : ");
+	scanf("%d",&num);
+	printf("%d %d %d ",a,b,c);
+	
+	//printf("The Fibonacci Series : ");
+	for(i=4;i<=num;i++)
+	{
+		a = b;
+		b = c;
+		c = a + b;
+	
+	    printf("%d ",c);
+    }
+}
