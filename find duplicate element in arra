@@ -1,0 +1,29 @@
+#include<stdio.h>
+int main()
+{
+    int n,i,j,b,count=0;
+    printf("enter size of two array : ");
+    scanf("%d",&n);
+    int a[n];
+    for(i=0;i<n;i++)
+    {
+        printf("enter %d element :",i);
+        scanf("%d",&a[i]);
+    }
+    for(i=0;i<n;i++)
+    {
+        b = a[i];
+        for(j=i+1;j<n;j++)
+        {
+            if(b==a[j])
+            {
+                count++;
+                printf("%d is a duplicate value which repeats %d times : \n",b,count);
+            }
+            
+            break;
+        }
+        count = 0;
+    }
+    return 0;
+}
