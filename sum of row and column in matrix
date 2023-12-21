@@ -1,0 +1,28 @@
+//sum of row and column
+#include<stdio.h>
+int main()
+{
+    int i,j;
+    int row = 0,col = 0;
+    int a[2][3] = {{1,2,3},
+                  {1,2,3}};
+    for(i=0;i<2;i++)
+    {
+        for(j=0;j<3;j++)
+        {
+            row = row+a[i][j];
+        }
+        printf("sum of row %d is = %d \n",i,row);
+        row = 0;
+    }
+    for(j=0;j<3;j++)
+    {
+        for(i=0;i<2;i++)
+        {
+            col = col+a[i][j];
+        }
+        printf("sum of column %d is = %d \n",j,col);
+        col = 0;
+    }
+    return 0;
+}
