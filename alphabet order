@@ -1,0 +1,23 @@
+#include<stdio.h>
+int main()
+{
+    int i,j,t;
+    char a[] = {'b','c','a'};
+    t = sizeof(a)/sizeof(a[0]);
+    char temp ;
+    for(i=0;i<t;i++)
+    {
+        for(j=i+1;j<t;j++)
+        {
+            if(a[i]>a[j])
+            {
+                temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+            }
+        }
+        printf("%c ,",a[i]);
+
+    }
+    return 0;
+}
