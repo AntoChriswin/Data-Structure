@@ -16,3 +16,4 @@ Day 1 - Arrays
 1.14 = Print odd and even in given array
 1.15 = Sum of row and column in matrix
 1.16 = Given array elements display 5th iterated element
+
