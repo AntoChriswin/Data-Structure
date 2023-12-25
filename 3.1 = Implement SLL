@@ -1,0 +1,216 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node{
+    int data;
+    struct node *next;
+
+}*head,*tail,*n;
+void in_big(int num)
+{
+    n = (struct node*)malloc(sizeof(struct node));
+    n->data = num;
+    n->next = NULL;
+    if(head = NULL )
+    {
+        head = n;
+        tail = n;
+    }
+    else
+    {
+        head = n->next;
+        head = n;
+    }
+}
+void in_end(int num)
+{
+    n = (struct node*)malloc(sizeof(struct node));
+    n->data = num;
+    n->next = NULL;
+    if(head = NULL )
+    {
+        head = n;
+        tail = n;
+    }
+    else{
+        tail ->next = n;
+        tail = n;
+    }
+}
+void in_mid(int num,int mid)
+{
+    struct node *t,*tb;
+    n = (struct node*)malloc(sizeof(struct node));
+    n->data = num;
+    n->next = NULL;
+    t = head;
+    while(t!=NULL)
+    {
+        tb = t;
+        t = t->next;
+        if(tb->data == mid)
+        {
+            break;
+        }
+    }
+    n->next = t->next;
+    t->next = n;    
+}
+void del_big()
+{
+    struct node *t;
+    t = head;
+    head = t->next;
+    free(t);
+}
+
+void del_end()
+{
+    struct node *t,*tb;
+    t = head;
+    while(t!=NULL)
+    {
+        tb = t;
+        t = t->next;
+        if(t->next == NULL)
+        {
+            break;
+        }
+    
+    }
+    tail = tb;
+    tail->next = NULL;
+    free(t);
+}
+void del_mid(int num)
+{
+    struct node *t,*tb;
+    t = head;
+    while(t !=NULL)
+    {
+        tb = t;
+        t = t->next;
+        if(t->data == num)
+        {
+            break;
+        }
+    }
+    tb->next = t->next;
+    free(t);
+}
+int search(int num)
+{
+    struct  node *t;
+    for(t=head;t!=NULL;t=t->next)
+    {
+        if(t->data ==  num)
+        {
+            printf("object is found");
+            return 0;
+        }
+    }
+    printf("object is not found");
+    printf("\n");
+    return 0;
+}
+void display()
+{
+    struct node *t;
+    for(t=head;t!=NULL;t=t->next)
+    {
+        printf("%d",t->data);
+    }
+    printf("\n");
+}
+void sort()
+{
+    struct node *i,*j,*m;
+    for(i=head;i!=NULL;i=i->next)
+    {
+        for(j=head->next;j!=NULL;j=j->next)
+        {
+            if(i->data > j->data)
+            {
+                m = i->data;
+                i->data = j->data;
+                j->data = m;
+            }
+        }
+    }
+    display();
+    printf("\n");
+
+}
+int main()
+{
+    int ch;
+    while(1)
+    {
+        printf("menu : \n");
+        printf("to insert : 1 \n");
+        printf("to delete : 2 \n");
+        printf("to display : 3 \n");
+        printf("to search : 4 \n");
+        printf("to sort : 5 \n");
+        printf("to exit : 6 \n");
+        printf("enter your choice : ");
+        scanf("%d",&ch);
+
+        if(ch==3)
+        {
+            display();
+        }
+        else if(ch == 6)
+        {
+            break;
+        }
+        else if(ch==1)
+        {
+            int a;
+            printf("----insert at start : 1\n");
+            printf("----insert at middle : 2 \n");
+            printf("----insert at end : 3\n");
+            printf("----enter your choice : ");
+            scanf("%d",&a);
+            if(a == 1)
+            {
+                int num;
+                printf("enter num to insert : ");
+                scanf("%d",&num);
+                in_big(num);
+            }
+            else if(a == 2)
+            {
+                int num,mid;
+                printf("enter num to insert : ");
+                scanf("%d",&num);
+                printf("enter where to insert : ");
+                scanf("%d",&mid);
+                in_mid(num,mid);
+            }
+            else if(a==3)
+            {
+                int num;
+                printf("enter num to insert : ");
+                scanf("%d",&num);
+                in_end(num);
+            }
+            
+        }
+        else if(ch == 2)
+        {
+            int num;
+            printf("enter num to insert : ");
+            scanf("%d",&num);
+            search(num);
+        }
+        else if(ch == 5)
+        {
+            //int num;
+            //printf("enter num to insert : ");
+            //scanf("%d",&num);
+            sort();
+        }
+    }
+    
+
+}
