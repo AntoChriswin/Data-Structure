@@ -35,8 +35,24 @@ Day 3 – Singly Linked List
           -Search
           -Sort
           -Find Max and Min
-3.2 =	To determine whether a given singly linked list is a palindrome
-3.3 =	To merge two sorted singly linked lists into a single sorted linked list
-3.4 =	Print no of nodes in the given linked list
-3.5 =	Intersect SLL
-3.6 =	Reverse - SLL
+3.2 = To determine whether a given singly linked list is a palindrome
+3.3 = To merge two sorted singly linked lists into a single sorted linked list
+3.4 = Print no of nodes in the given linked list
+3.5 = Intersect SLL
+3.6 = Reverse - SLL
+
+Day 4
+4.1 = Implement DLL with following operations
+          -Insert(Beg,Mid,End)
+          -Delete(Beg,Mid,End)
+          -Display
+          -Search
+          -Sort
+          -Find Max and Min
+4.2 = Implement Singly CLL with following operations
+          -Insert(Beg,Mid,End)
+          -Delete(Beg,Mid,End)
+          -Display
+          -Search
+          -Sort
+          -Find Max and Min
