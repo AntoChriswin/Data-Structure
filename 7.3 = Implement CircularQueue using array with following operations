@@ -1,0 +1,69 @@
+#define MAX_SIZE 5
+
+int queue[MAX_SIZE];
+int front = -1;
+int rear = -1;
+
+int isFull() {
+    if ((front == 0 && rear == MAX_SIZE - 1) || (rear == front - 1))
+        return 1;
+    else
+        return 0;
+}
+
+int isEmpty() {
+    if (front == -1)
+        return 1;
+    else
+        return 0;
+}
+
+void enqueue(int element) {
+    if (isFull()) {
+        printf("Queue is full. Cannot enqueue element.\n");
+    } else {
+        if (front == -1)
+            front = 0;
+        rear = (rear + 1) % MAX_SIZE;
+        queue[rear] = element;
+        printf("Enqueued element: %d\n", element);
+    }
+}
+
+int dequeue() {
+    int element;
+    if (isEmpty()) {
+        printf("Queue is empty. Cannot dequeue element.\n");
+        return -1;
+    } else {
+        element = queue[front];
+        if (front == rear)
+            front = rear = -1;
+        else
+            front = (front + 1) % MAX_SIZE;
+        return element;
+    }
+}
+
+void display() {
+    int i;
+    if (isEmpty()) {
+        printf("Queue is empty.\n");
+    } else {
+        printf("Elements in the queue: ");
+        for (i = front; i != rear; i = (i + 1) % MAX_SIZE) {
+            printf("%d ", queue[i]);
+        }
+        printf("%d\n", queue[rear]);
+    }
+}
+
+int main() {
+    enqueue(10);
+    enqueue(20);
+    enqueue(30);
+    display();
+    printf("Dequeued element: %d\n", dequeue());
+    display();
+    return 0;
+}
