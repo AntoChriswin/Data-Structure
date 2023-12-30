@@ -1,0 +1,114 @@
+#include<stdio.h>
+int front = 0;
+int rear = 3;
+int max = 6;
+
+void enqueue(int n, int q[] )
+{
+	if(rear == max-1)
+	{
+		printf("overflow");
+		
+	}	 
+	else if(rear == -1 && front == -1 )
+	{
+		front = rear = 0;
+		q[rear] = n;
+	}
+	else
+	{
+		rear = rear+1;
+		q[rear] = n;
+	}
+}
+
+void dequeue(int q[] )
+{
+	if(rear == -1 && front == -1 )
+	{
+		printf("underflow");
+	}
+	else if( rear == -1 && front == -1)
+	{
+		rear = front = -1;
+	}
+	else
+	{
+		printf("%d",q[front]);
+		front = front+1;
+	}
+}
+
+void display(int q[] )
+{
+	if(rear == -1 && front == -1 )
+	{
+		printf("underflow");
+	}
+	else
+	{
+		int i = front;
+		while(i!= rear+1)
+		{
+			printf("%d \n",q[i]);
+			i = i+1;
+		}
+	}
+}
+
+void peek(int q[] )
+{
+	if(rear == -1 && front == -1 )
+	{
+		printf("underflow");
+	}
+	else
+	{
+		printf("%d \n",q[front]);
+	}
+} 
+
+int main()
+{
+	int ch;
+	int q[6] = {1,2,3,4};
+	//int front = 0;
+	
+	while(1)
+	{
+		printf("menu : \n");
+	    printf("insert - 1 \n");
+	    printf("delete - 2 \n");
+	    printf("peek - 3 \n");
+	    printf("display - 4 \n");
+	    printf("end - 5 \n");
+	    printf("enter menu : ");
+	    scanf("%d",&ch);
+	    if(ch==1)
+		{
+		    int n;
+		    printf("enter number to insert : ");
+			scanf("%d",& n);
+			enqueue(n,q);
+		}
+		else if(ch==2)
+		{
+			dequeue(q);
+		}
+			else if(ch==3)
+		{
+			peek(q);
+		}
+		else if(ch==4)
+		{
+			display(q);
+		}
+		else if(ch==5)
+		{
+			break;
+		}
+	
+	}
+
+	return 0;
+}
