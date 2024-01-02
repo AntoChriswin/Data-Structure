@@ -1,0 +1,49 @@
+#include<stdio.h>
+#include<stdlib.h>
+// insertiom on binary tree
+struct node{
+	int data;
+	struct node* left;
+	struct node * right;
+} *n;
+
+struct node*createnode(int num)
+{
+	n = (struct node*)malloc(sizeof(struct node));
+	n->data = num;
+	n->right = NULL;
+	n->left = NULL;	
+}
+
+struct node*leftcreate(struct node*root,int num)
+{
+	root->left = createnode(num);
+	return root->left;
+}
+
+struct node*rightcreate(struct node*root,int num)
+{
+	root->right = createnode(num);
+	return root->right;
+}
+void display(struct node*root)
+{
+	printf("         %d       ",root->data);
+	printf("\n");
+	printf("    %d         %d ",root->left->data,root->right->data);
+	printf("\n");
+	printf(" %d     %d   ",root->left->left->data,root->left->right->data);
+}
+
+int main()
+{
+	struct node*root = createnode(1);
+	leftcreate(root,2);
+	rightcreate(root,3);
+	leftcreate(root->left,4);
+	rightcreate(root->left,5);
+	
+	display(root);
+	return 0;
+		
+}
