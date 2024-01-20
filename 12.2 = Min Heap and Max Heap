@@ -1,19 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Structure to represent a heap node
 struct HeapNode {
     int data;
 };
 
-// Structure to represent a heap
+
 struct Heap {
     int capacity;
     int size;
     struct HeapNode* nodes;
 };
 
-// Function to create a new heap
 struct Heap* createHeap(int capacity) {
     struct Heap* heap = (struct Heap*)malloc(sizeof(struct Heap));
     heap->capacity = capacity;
@@ -22,14 +20,13 @@ struct Heap* createHeap(int capacity) {
     return heap;
 }
 
-// Function to swap two heap nodes
+
 void swap(struct HeapNode* a, struct HeapNode* b) {
     struct HeapNode temp = *a;
     *a = *b;
     *b = temp;
 }
 
-// Function to heapify a subtree rooted at index i
 void heapify(struct Heap* heap, int i) {
     int smallest = i;
     int left = 2 * i + 1;
@@ -47,7 +44,6 @@ void heapify(struct Heap* heap, int i) {
     }
 }
 
-// Function to insert a new node into the heap
 void insert(struct Heap* heap, int data) {
     if (heap->size == heap->capacity) {
         printf("Heap is full. Cannot insert more nodes.\n");
@@ -68,7 +64,7 @@ void insert(struct Heap* heap, int data) {
     heap->size++;
 }
 
-// Function to print the heap
+
 void printHeap(struct Heap* heap) {
     printf("Heap: ");
     for (int i = 0; i < heap->size; i++) {
